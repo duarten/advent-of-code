@@ -2,39 +2,26 @@ use std::fs::File;
 use std::io::{self, BufRead};
 use std::ops::Add;
 
-fn find_position(mut pos: &[usize], guide: &[i32]) -> usize {
-    for g in guide {
-        let m = pos.len() / 2;
-        if *g > 0 {
-            pos = &pos[m..];
-        } else {
-            pos = &pos[..m];
+fn parse_id(guide: String) -> Option<usize> {
+    let mut row = 0;
+    let mut col = 0;
+    for g in guide.bytes() {
+        match g {
+            b'F' => row <<= 1,
+            b'B' => row = (row << 1) + 1,
+            b'L' => col <<= 1,
+            b'R' => col = (col << 1) + 1,
+            _ => return None,
         }
     }
-    pos[0]
+    Some(row * 8 + col)
 }
 
 fn main() {
     let file = File::open("inputs/day05.input").unwrap();
-    let lines = io::BufReader::new(file).lines().map(|l| {
-        l.unwrap()
-            .chars()
-            .map(|c| match c {
-                'F' | 'L' => -1,
-                'B' | 'R' => 1,
-                _ => panic!(),
-            })
-            .collect::<Vec<i32>>()
-    });
-    let rows: Vec<usize> = (0..128).collect();
-    let cols: Vec<usize> = (0..8).collect();
-    let positions = lines.map(|s| {
-        (
-            find_position(&rows, &s[0..7]),
-            find_position(&cols, &s[7..]),
-        )
-    });
-    let ids = positions.map(|(r, c)| r * 8 + c);
+    let ids = io::BufReader::new(file)
+        .lines()
+        .filter_map(|l| parse_id(l.unwrap()));
     let (highest, smallest, cnt) = ids.fold((0, usize::MAX, 0), |(max, min, sum), x| {
         (usize::max(max, x), usize::min(min, x), sum + x)
     });
