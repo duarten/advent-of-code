@@ -33,5 +33,7 @@ name = "day07"
 path = "src/day07.rs"
 
 [dependencies]
+anyhow = "1.0"
+itertools = "0.9"
 lazy_static = "1.4"
 regex = "1.4"
