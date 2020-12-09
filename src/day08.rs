@@ -54,7 +54,7 @@ enum State {
 }
 
 impl VM {
-    fn execute(&mut self, program: &Vec<Instruction>) -> Result<State, ExecError> {
+    fn execute(&mut self, program: &[Instruction]) -> Result<State, ExecError> {
         let pc = self.pc;
         if !self.executed.insert(pc) {
             return Err(ExecError::InfiniteLoop(self.acc));
@@ -74,7 +74,7 @@ impl VM {
         })
     }
 
-    fn cycle(mut self, program: &Vec<Instruction>) -> Result<Self, ExecError> {
+    fn cycle(mut self, program: &[Instruction]) -> Result<Self, ExecError> {
         let mut res = Ok(State::Continue);
         while let Ok(State::Continue) = res {
             res = self.execute(program)

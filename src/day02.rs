@@ -29,9 +29,9 @@ impl FromStr for Policy {
     type Err = std::boxed::Box<dyn std::error::Error>;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        let parts: Vec<&str> = s.split(" ").collect();
+        let parts: Vec<&str> = s.split(' ').collect();
         let min_max: Vec<usize> = parts[0]
-            .split("-")
+            .split('-')
             .map(|s| usize::from_str(&s).unwrap())
             .collect();
         Ok(Policy {

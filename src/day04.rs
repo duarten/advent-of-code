@@ -39,7 +39,7 @@ impl Passport {
 
     fn set_hcl(&mut self, val: &str) {
         self.hcl = Some(val)
-            .filter(|s| s.len() == 7 && s.find("#").unwrap_or(1) == 0)
+            .filter(|s| s.len() == 7 && s.find('#').unwrap_or(1) == 0)
             .and_then(|_| usize::from_str_radix(&val[1..], 16).ok())
     }
 
@@ -67,7 +67,7 @@ impl Passport {
 }
 
 fn parse(p: &mut Passport, attr: &str) {
-    let parts: Vec<&str> = attr.split(":").collect();
+    let parts: Vec<&str> = attr.split(':').collect();
     if parts.len() != 2 {
         return;
     }

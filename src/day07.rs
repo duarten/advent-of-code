@@ -22,12 +22,11 @@ fn do_find_containers<'a>(
     m: &HashMap<Bag<'a>, Vec<Bag<'a>>>,
     ret: &mut HashSet<Bag<'a>>,
 ) {
-    match m.get(b) {
-        Some(c) => c.iter().for_each(|c| {
+    if let Some(c) = m.get(b) {
+        c.iter().for_each(|c| {
             ret.insert(c);
             do_find_containers(c, m, ret)
-        }),
-        None => {}
+        })
     }
 }
 
@@ -62,7 +61,7 @@ fn main() {
             parse_line(l).into_iter().for_each(|(bag, cnt, contains)| {
                 index
                     .entry(bag)
-                    .or_insert(HashSet::<Container>::new())
+                    .or_insert_with(HashSet::<Container>::new)
                     .insert(Container {
                         times_contained: cnt,
                         bag: contains,

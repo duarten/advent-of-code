@@ -1,7 +1,7 @@
 use std::fs::File;
 use std::io::{self, BufRead};
 
-fn check_slope(trees: &Vec<String>, right: usize, down: usize) -> usize {
+fn check_slope(trees: &[String], right: usize, down: usize) -> usize {
     trees
         .iter()
         .enumerate()
@@ -17,9 +17,9 @@ fn main() {
         .lines()
         .map(|l| l.unwrap().parse().unwrap())
         .collect();
-    let res = [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)]
+    let res: usize = [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)]
         .iter()
         .map(|(r, d)| check_slope(&lines, *r, *d))
-        .fold(1, |acc, x| acc * x);
+        .product();
     println!("{}", res)
 }
