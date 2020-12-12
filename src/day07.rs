@@ -68,7 +68,7 @@ fn main() {
                     });
                 rev_index
                     .entry(contains)
-                    .or_insert(Vec::<Bag>::new())
+                    .or_insert_with(Vec::<Bag>::new)
                     .push(bag);
             });
             (index, rev_index)
@@ -84,7 +84,7 @@ fn main() {
     );
 }
 
-fn parse_line<'a>(rule: &'a str) -> Vec<(Bag<'a>, usize, Bag<'a>)> {
+fn parse_line(rule: &str) -> Vec<(Bag, usize, Bag)> {
     let captures = RE_RULE.captures(rule).unwrap();
     let container = captures.get(1).unwrap().as_str();
     RE_CONT

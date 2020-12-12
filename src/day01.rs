@@ -1,7 +1,6 @@
 use std::collections::HashSet;
 use std::fs::File;
 use std::io::{self, BufRead};
-use std::iter::FromIterator;
 
 fn find_entries(entries: &HashSet<i32>) -> Option<i32> {
     entries
@@ -20,11 +19,10 @@ fn find_entries_trip(entries: &HashSet<i32>) -> Option<i32> {
 
 fn main() {
     let file = File::open("inputs/day01.input").unwrap();
-    let xs = HashSet::<i32>::from_iter(
-        io::BufReader::new(file)
-            .lines()
-            .map(|l| l.unwrap().parse().unwrap()),
-    );
+    let xs: HashSet<_> = io::BufReader::new(file)
+        .lines()
+        .map(|l| l.unwrap().parse().unwrap())
+        .collect();
     let r = find_entries(&xs);
     println!("{:?}", r);
     let r = find_entries_trip(&xs);

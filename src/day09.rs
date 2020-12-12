@@ -1,7 +1,6 @@
 use std::collections;
 use std::fs;
 use std::io::{self, BufRead};
-use std::iter::FromIterator;
 use std::ops;
 
 fn abs_difference<T: ops::Sub<Output = T> + Ord>(x: T, y: T) -> T {
@@ -44,7 +43,7 @@ fn main() {
         .collect();
     let mut iter = nums.iter().copied();
     let mut preamble: collections::VecDeque<_> = iter.by_ref().take(25).collect();
-    let mut map = collections::HashSet::from_iter(preamble.iter().copied());
+    let mut map: collections::HashSet<_> = preamble.iter().copied().collect();
     let invalid = iter
         .skip_while(|n| {
             is_valid(&map, *n)
