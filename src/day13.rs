@@ -5,10 +5,10 @@ struct Bus {
 
 fn main() {
     let file = std::fs::read_to_string("inputs/day13.input").unwrap();
-    let raw: Vec<_> = file.split("\n").collect();
+    let raw: Vec<_> = file.split('\n').collect();
     let ts: usize = raw[0].parse().unwrap();
     let buses: Vec<_> = raw[1]
-        .split(",")
+        .split(',')
         .enumerate()
         .filter(|(_, c)| *c != "x")
         .map(|(i, c)| Bus {
