@@ -13,7 +13,6 @@ enum Position {
 
 fn within_bounds(wr: &[Position], pos: usize, step: i64, dir: i64) -> bool {
     let new_pos = pos.wrapping_add(step as usize);
-    //let dir = step - (((step + step.signum()) / ROW_SIZE as i64) * ROW_SIZE as i64);
     new_pos < wr.len()
         && (dir == 0
             || (dir > 0 && (pos % ROW_SIZE < new_pos % ROW_SIZE))
