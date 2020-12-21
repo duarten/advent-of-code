@@ -1,4 +1,3 @@
-use regex::Regex;
 use std::fs;
 
 fn sine(angle: usize) -> f64 {
@@ -287,10 +286,6 @@ impl Picture {
         }
         cnt
     }
-}
-
-lazy_static::lazy_static! {
-    static ref RE_ID: Regex = Regex::new(r#"^Tile (\d+):$"#).unwrap();
 }
 
 fn main() {
