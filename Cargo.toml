@@ -80,8 +80,15 @@ path = "src/day18.rs"
 name = "day19"
 path = "src/day19.rs"
 
+[[bin]]
+name = "day20"
+path = "src/day20.rs"
+
 [dependencies]
 anyhow = "1.0"
 itertools = "0.9"
 lazy_static = "1.4"
 regex = "1.4"
+
+[profile.release]
+debug = true
