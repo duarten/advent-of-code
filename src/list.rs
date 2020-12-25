@@ -16,7 +16,7 @@ impl NodeId {
     pub fn append_after<T>(self, other: NodeId, arena: &mut Arena<T>) -> NodeId {
         let id = CircularNodeIterator::new(arena, other).last().unwrap().id;
         arena[id].next = std::mem::replace(&mut arena[self].next, other);
-        return id;
+        id
     }
 
     pub fn pop_after<T>(self, cnt: usize, arena: &mut Arena<T>) -> Option<NodeId> {
@@ -35,9 +35,7 @@ impl NodeId {
     }
 
     pub fn contains<T: PartialEq>(self, val: &T, arena: &Arena<T>) -> bool {
-        CircularNodeIterator::new(arena, self)
-            .find(|n| n.data == *val)
-            .is_some()
+        CircularNodeIterator::new(arena, self).any(|n| n.data == *val)
     }
 }
 
