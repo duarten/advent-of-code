@@ -84,7 +84,7 @@ fn parse(p: &mut Passport, attr: &str) {
 }
 
 fn main() {
-    let file = File::open("inputs/day04.input").unwrap();
+    let file = File::open("aoc2020/inputs/day04.input").unwrap();
     let lines: Vec<String> = io::BufReader::new(file)
         .lines()
         .map(|l| l.unwrap().parse().unwrap())

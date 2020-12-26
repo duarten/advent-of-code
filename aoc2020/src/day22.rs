@@ -100,7 +100,7 @@ fn recursive_combat(mut d1: Deck, mut d2: Deck) -> Deck {
 }
 
 fn main() -> Result<()> {
-    let input = fs::read_to_string("inputs/day22.input").unwrap();
+    let input = fs::read_to_string("aoc2020/inputs/day22.input").unwrap();
     let mut decks = input
         .split("\n\n")
         .map(Deck::from_str)

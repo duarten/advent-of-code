@@ -17,7 +17,7 @@ fn find_loop_size(k: usize, sub: usize) -> usize {
 }
 
 fn main() {
-    let input = fs::read_to_string("inputs/day25.input").unwrap();
+    let input = fs::read_to_string("aoc2020/inputs/day25.input").unwrap();
     let mut codes = input.lines();
     let card_code: usize = codes.next().unwrap().parse().unwrap();
     let door_code: usize = codes.next().unwrap().parse().unwrap();

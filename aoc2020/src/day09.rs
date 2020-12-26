@@ -36,7 +36,7 @@ fn find_weakness(nums: Vec<u64>, target: u64) -> Option<u64> {
 }
 
 fn main() {
-    let file = fs::File::open("inputs/day09.input").unwrap();
+    let file = fs::File::open("aoc2020/inputs/day09.input").unwrap();
     let nums: Vec<_> = io::BufReader::new(file)
         .lines()
         .map(|l| l.unwrap().parse().unwrap())

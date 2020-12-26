@@ -18,7 +18,7 @@ fn find_entries_trip(entries: &HashSet<i32>) -> Option<i32> {
 }
 
 fn main() {
-    let file = File::open("inputs/day01.input").unwrap();
+    let file = File::open("aoc2020/inputs/day01.input").unwrap();
     let xs: HashSet<_> = io::BufReader::new(file)
         .lines()
         .map(|l| l.unwrap().parse().unwrap())

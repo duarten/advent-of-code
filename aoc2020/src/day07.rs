@@ -47,7 +47,7 @@ fn count_bags<'a>(b: Bag<'a>, m: &HashMap<Bag, HashSet<Container>>) -> usize {
 }
 
 fn main() {
-    let file = File::open("inputs/day07.input").unwrap();
+    let file = File::open("aoc2020/inputs/day07.input").unwrap();
     let lines: Vec<String> = io::BufReader::new(file)
         .lines()
         .map(|l| l.unwrap())

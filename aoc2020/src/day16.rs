@@ -95,7 +95,7 @@ fn field_positions(ts: &[Ticket], rs: &[Rule]) -> collections::HashMap<String, u
 }
 
 fn main() {
-    let input = fs::read_to_string("inputs/day16.input").unwrap();
+    let input = fs::read_to_string("aoc2020/inputs/day16.input").unwrap();
     let mut sections = input.split("\n\n");
     let rules: Vec<Rule> = sections
         .next()

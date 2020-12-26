@@ -82,7 +82,10 @@ fn next_day(l: Layout) -> Layout {
 
 fn main() {
     let mut layout = Layout::new();
-    for l in fs::read_to_string("inputs/day24.input").unwrap().lines() {
+    for l in fs::read_to_string("aoc2020/inputs/day24.input")
+        .unwrap()
+        .lines()
+    {
         let mut coord = Coord::default();
         let mut i = 0;
         while i < l.len() {

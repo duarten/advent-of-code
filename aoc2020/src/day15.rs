@@ -24,7 +24,7 @@ fn record(x: usize, idx: usize, seen: &mut collections::HashMap<usize, TurnsSeen
 }
 
 fn main() {
-    let input: Vec<_> = fs::read_to_string("inputs/day15.input")
+    let input: Vec<_> = fs::read_to_string("aoc2020/inputs/day15.input")
         .unwrap()
         .split(',')
         .map(|n| n.parse().unwrap())

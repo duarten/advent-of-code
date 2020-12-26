@@ -73,7 +73,7 @@ impl FromStr for Exp {
 }
 
 fn main() {
-    let file = File::open("inputs/day18.input").unwrap();
+    let file = File::open("aoc2020/inputs/day18.input").unwrap();
     let exps: Vec<Exp> = io::BufReader::new(file)
         .lines()
         .map(|l| l.unwrap().parse().unwrap())

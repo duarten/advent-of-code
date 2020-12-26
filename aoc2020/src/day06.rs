@@ -3,7 +3,7 @@ use std::io::{self, BufRead};
 use std::ops::Add;
 
 fn main() {
-    let file = File::open("inputs/day06.input").unwrap();
+    let file = File::open("aoc2020/inputs/day06.input").unwrap();
     let mut group_any = 0u32;
     let mut groups_any = vec![];
     let mut group_all = !0u32;

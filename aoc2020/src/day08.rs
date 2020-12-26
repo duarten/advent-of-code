@@ -87,7 +87,7 @@ impl VM {
 }
 
 fn main() {
-    let file = fs::File::open("inputs/day08.input").unwrap();
+    let file = fs::File::open("aoc2020/inputs/day08.input").unwrap();
     let mut program: Vec<_> = io::BufReader::new(file)
         .lines()
         .map(|l| l.unwrap().parse().unwrap())

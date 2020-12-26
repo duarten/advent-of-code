@@ -31,7 +31,7 @@ fn count_arrangements(jolts: &[u64]) -> usize {
 }
 
 fn main() {
-    let file = fs::File::open("inputs/day10.input").unwrap();
+    let file = fs::File::open("aoc2020/inputs/day10.input").unwrap();
     let mut jolts = vec![0];
     jolts.extend(
         io::BufReader::new(file)

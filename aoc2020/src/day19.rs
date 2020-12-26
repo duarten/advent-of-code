@@ -110,7 +110,7 @@ impl FromStr for NumberedRule {
 }
 
 fn main() {
-    let input = fs::read_to_string("inputs/day19.input").unwrap();
+    let input = fs::read_to_string("aoc2020/inputs/day19.input").unwrap();
     let mut sections = input.split("\n\n");
     let mut rules: HashMap<usize, NumberedRule> = sections
         .next()

@@ -13,7 +13,7 @@ fn parse_id(guide: &str) -> usize {
 }
 
 fn main() {
-    let file = File::open("inputs/day05.input").unwrap();
+    let file = File::open("aoc2020/inputs/day05.input").unwrap();
     let ids = io::BufReader::new(file)
         .lines()
         .map(|l| parse_id(&l.unwrap()));

@@ -1,3 +1,3 @@
-# advent-of-code-2020
+# advent-of-code
 
-My solutions to Advent of Code 2020. 🎄⭐️
+My solutions to Advent of Code 🎄⭐️

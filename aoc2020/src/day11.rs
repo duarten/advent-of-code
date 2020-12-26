@@ -76,7 +76,7 @@ fn run_simulation(mut wr: Vec<Position>, threshold: usize, limit: usize) -> usiz
 }
 
 fn main() -> Result<()> {
-    let file = fs::File::open("inputs/day11.input").unwrap();
+    let file = fs::File::open("aoc2020/inputs/day11.input").unwrap();
     let wr = io::BufReader::new(file)
         .lines()
         .flat_map(|l| {

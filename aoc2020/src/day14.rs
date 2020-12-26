@@ -104,7 +104,7 @@ impl State {
 }
 
 fn main() {
-    let file = fs::File::open("inputs/day14.input").unwrap();
+    let file = fs::File::open("aoc2020/inputs/day14.input").unwrap();
     let instructions: Vec<_> = io::BufReader::new(file)
         .lines()
         .map(|l| l.unwrap().parse().unwrap())

@@ -69,7 +69,7 @@ where
 }
 
 fn main() {
-    let file = File::open("inputs/day17.input").unwrap();
+    let file = File::open("aoc2020/inputs/day17.input").unwrap();
     let d: Vec<_> = io::BufReader::new(file)
         .lines()
         .enumerate()

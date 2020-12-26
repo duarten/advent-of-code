@@ -12,7 +12,7 @@ fn check_slope(trees: &[String], right: usize, down: usize) -> usize {
 }
 
 fn main() {
-    let file = File::open("inputs/day03.input").unwrap();
+    let file = File::open("aoc2020/inputs/day03.input").unwrap();
     let lines: Vec<String> = io::BufReader::new(file)
         .lines()
         .map(|l| l.unwrap().parse().unwrap())

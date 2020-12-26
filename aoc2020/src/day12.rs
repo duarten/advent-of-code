@@ -188,7 +188,7 @@ fn apply_pt2(s: &mut Ship, w: &mut Waypoint, inst: Instruction) {
 }
 
 fn main() {
-    let file = fs::File::open("inputs/day12.input").unwrap();
+    let file = fs::File::open("aoc2020/inputs/day12.input").unwrap();
     let instructions: Vec<_> = io::BufReader::new(file)
         .lines()
         .map(|l| l.unwrap().parse().unwrap())

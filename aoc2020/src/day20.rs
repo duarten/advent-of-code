@@ -289,7 +289,7 @@ impl Picture {
 }
 
 fn main() {
-    let input = fs::read_to_string("inputs/day20.input").unwrap();
+    let input = fs::read_to_string("aoc2020/inputs/day20.input").unwrap();
     let tiles: Vec<_> = input
         .split("\n\n")
         .collect::<Vec<_>>()

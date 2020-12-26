@@ -44,7 +44,7 @@ impl FromStr for Policy {
 }
 
 fn main() {
-    let file = File::open("inputs/day02.input").unwrap();
+    let file = File::open("aoc2020/inputs/day02.input").unwrap();
     let xs: Vec<Policy> = io::BufReader::new(file)
         .lines()
         .map(|l| l.unwrap().parse().unwrap())

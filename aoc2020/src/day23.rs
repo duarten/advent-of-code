@@ -1,11 +1,9 @@
 #![feature(iterator_fold_self)]
 
-mod list;
-
 use std::fs;
 use std::num::NonZeroUsize;
 
-use list::{Arena, CircularNodeIterator, NodeId};
+use utils::list::{Arena, CircularNodeIterator, NodeId};
 
 struct Cups {
     arena: Arena<usize>,
@@ -48,7 +46,7 @@ impl Cups {
 }
 
 fn main() {
-    let mut labels: Vec<_> = fs::read_to_string("inputs/day23.input")
+    let mut labels: Vec<_> = fs::read_to_string("aoc2020/inputs/day23.input")
         .unwrap()
         .chars()
         .map(|c| c.to_digit(10).unwrap() as usize)

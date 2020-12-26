@@ -3,7 +3,7 @@ use std::fs::File;
 use std::io::{self, BufRead};
 
 fn main() {
-    let file = File::open("inputs/day21.input").unwrap();
+    let file = File::open("aoc2020/inputs/day21.input").unwrap();
     let mut foods = HashMap::<String, usize>::new();
     let mut allergens = HashMap::<String, Vec<String>>::new();
     for line in io::BufReader::new(file).lines().map(|l| l.unwrap()) {
