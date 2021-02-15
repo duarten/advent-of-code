@@ -46,6 +46,7 @@ pub struct Node<T> {
     pub next: NodeId,
 }
 
+#[derive(Default)]
 pub struct Arena<T> {
     nodes: Vec<Node<T>>,
 }
@@ -53,6 +54,10 @@ pub struct Arena<T> {
 impl<T> Arena<T> {
     pub fn new() -> Arena<T> {
         Self { nodes: Vec::new() }
+    }
+
+    pub fn is_empty(&self) -> bool {
+        self.nodes.is_empty()
     }
 
     pub fn len(&self) -> usize {

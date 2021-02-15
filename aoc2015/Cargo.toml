@@ -1,0 +1,69 @@
+[package]
+name = "aoc2015"
+version = "0.1.0"
+authors = ["Duarte Nunes <duarte@hey.com>"]
+edition = "2018"
+
+[dependencies]
+anyhow = "1.0"
+itertools = "0.10.0"
+lazy_static = "1.4"
+md5 = "0.7.0"
+regex = "1.4"
+serde_json = "1.0.61"
+
+[[bin]]
+name = "day01"
+path = "src/day01.rs"
+
+[[bin]]
+name = "day02"
+path = "src/day02.rs"
+
+[[bin]]
+name = "day03"
+path = "src/day03.rs"
+
+[[bin]]
+name = "day04"
+path = "src/day04.rs"
+
+[[bin]]
+name = "day05"
+path = "src/day05.rs"
+
+[[bin]]
+name = "day06"
+path = "src/day06.rs"
+
+[[bin]]
+name = "day07"
+path = "src/day07.rs"
+
+[[bin]]
+name = "day08"
+path = "src/day08.rs"
+
+[[bin]]
+name = "day09"
+path = "src/day09.rs"
+
+[[bin]]
+name = "day10"
+path = "src/day10.rs"
+
+[[bin]]
+name = "day11"
+path = "src/day11.rs"
+
+[[bin]]
+name = "day12"
+path = "src/day12.rs"
+
+[[bin]]
+name = "day13"
+path = "src/day13.rs"
+
+[[bin]]
+name = "day14"
+path = "src/day14.rs"
