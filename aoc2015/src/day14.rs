@@ -121,7 +121,7 @@ fn main() {
         "part 2: {:?}",
         iterate(
             rs.iter().map(|r| ReindeerState::new(r)).collect::<Vec<_>>(),
-            |rs| tick_all(&rs),
+            |rs| tick_all(rs),
         )
         .take(2503)
         .last()

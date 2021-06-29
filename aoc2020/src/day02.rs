@@ -32,7 +32,7 @@ impl FromStr for Policy {
         let parts: Vec<&str> = s.split(' ').collect();
         let min_max: Vec<usize> = parts[0]
             .split('-')
-            .map(|s| usize::from_str(&s).unwrap())
+            .map(|s| usize::from_str(s).unwrap())
             .collect();
         Ok(Policy {
             min: min_max[0],

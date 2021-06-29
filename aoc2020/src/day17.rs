@@ -1,4 +1,4 @@
-#![feature(bool_to_option, min_const_generics)]
+#![feature(bool_to_option)]
 
 use std::collections::HashMap;
 use std::fs::File;

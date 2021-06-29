@@ -1,5 +1,3 @@
-#![feature(iterator_fold_self)]
-
 use std::fs;
 use std::num::NonZeroUsize;
 
@@ -20,7 +18,7 @@ impl Cups {
         labels
             .into_iter()
             .map(|l| NodeId(NonZeroUsize::new(l).unwrap()))
-            .fold_first(|a, b| a.append_after(b, &mut arena));
+            .reduce(|a, b| a.append_after(b, &mut arena));
         Self { arena, current }
     }
 

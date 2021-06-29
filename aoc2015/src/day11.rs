@@ -36,7 +36,7 @@ fn is_valid(pass: &[u8]) -> bool {
 
 fn next_password(input: Vec<u8>) -> Vec<u8> {
     iterate(input, |v| next(v.to_vec()))
-        .find(|v| is_valid(&v))
+        .find(|v| is_valid(v))
         .unwrap()
 }
 

@@ -189,10 +189,8 @@ fn stich_node(id: TileId, tiles: &mut [Tile]) {
             }
             n.try_stich(others);
             n.stiched = true;
-            for edge in [n.top, n.bottom, n.left, n.right].iter() {
-                if let Some(id) = edge {
-                    stich_node(*id, others);
-                }
+            for edge in [n.top, n.bottom, n.left, n.right].iter().flatten() {
+                stich_node(*edge, others);
             }
         }
     }
