@@ -51,7 +51,6 @@ impl std::ops::Add for IngredientProps {
 
 #[derive(Debug)]
 struct Ingredient {
-    name: String,
     props: IngredientProps,
 }
 
@@ -93,7 +92,6 @@ fn main() {
         .map(Result::unwrap)
         .filter_map(|l| {
             RE.captures(&l).map(|g| Ingredient {
-                name: g.get(1).unwrap().as_str().to_owned(),
                 props: IngredientProps {
                     capacity: g.get(2).unwrap().as_str().parse::<i64>().unwrap(),
                     durability: g.get(3).unwrap().as_str().parse::<i64>().unwrap(),
