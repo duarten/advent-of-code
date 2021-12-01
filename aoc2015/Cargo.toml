@@ -2,7 +2,7 @@
 name = "aoc2015"
 version = "0.1.0"
 authors = ["Duarte Nunes <duarte@hey.com>"]
-edition = "2018"
+edition = "2021"
 
 [dependencies]
 anyhow = "1.0"

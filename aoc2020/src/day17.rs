@@ -1,5 +1,3 @@
-#![feature(bool_to_option)]
-
 use std::collections::HashMap;
 use std::fs::File;
 use std::hash::Hash;
@@ -64,7 +62,7 @@ where
     }
     cache
         .into_iter()
-        .filter_map(|(c, (active, an))| (an == 3 || active && an == 2).then_some(c))
+        .filter_map(|(c, (active, an))| (an == 3 || active && an == 2).then(|| c))
         .collect()
 }
 
