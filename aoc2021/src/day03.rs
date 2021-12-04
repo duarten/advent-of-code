@@ -31,7 +31,7 @@ fn filter_criteria(mut values: Vec<Vec<u8>>, criteria: impl Fn(usize, &[Vec<u8>]
     let mut idx = 0;
     while values.len() > 1 {
         let c = criteria(idx, &values);
-        values = values.into_iter().filter(|v| v[idx] == c).collect();
+        values.retain(|v| v[idx] == c);
         idx += 1;
     }
     to_number(values.swap_remove(0).into_iter())
