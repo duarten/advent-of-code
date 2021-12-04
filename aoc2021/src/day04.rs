@@ -1,5 +1,4 @@
 use std::{
-    convert::identity,
     fs::File,
     io::{self, BufRead},
 };
@@ -26,11 +25,7 @@ impl Board {
     }
 
     fn score(self) -> usize {
-        self.0
-            .into_iter()
-            .flat_map(|v| v)
-            .filter_map(identity)
-            .sum::<usize>()
+        self.0.into_iter().flatten().flatten().sum::<usize>()
     }
 }
 
@@ -40,7 +35,7 @@ fn main() {
     let called = lines
         .next()
         .unwrap()
-        .split(",")
+        .split(',')
         .map(|s| s.parse().unwrap())
         .collect::<Vec<usize>>();
     let mut boards = lines
