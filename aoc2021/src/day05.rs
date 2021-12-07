@@ -3,16 +3,10 @@ use std::{
     fs::File,
     io::{self, BufRead},
     iter::repeat,
-    ops, str,
+    str,
 };
 
-fn abs_difference<T: ops::Sub<Output = T> + Ord>(x: T, y: T) -> T {
-    if x < y {
-        y - x
-    } else {
-        x - y
-    }
-}
+use utils::abs_diff;
 
 #[derive(Debug, PartialEq, Eq, Hash)]
 struct Point {
@@ -22,7 +16,7 @@ struct Point {
 
 impl Point {
     fn diag(&self, other: &Point) -> bool {
-        abs_difference(self.x, other.x) == abs_difference(self.y, other.y)
+        abs_diff(self.x, other.x) == abs_diff(self.y, other.y)
     }
 }
 

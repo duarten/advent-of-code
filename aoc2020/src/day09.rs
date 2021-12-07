@@ -1,19 +1,12 @@
 use std::collections;
 use std::fs;
 use std::io::{self, BufRead};
-use std::ops;
 
-fn abs_difference<T: ops::Sub<Output = T> + Ord>(x: T, y: T) -> T {
-    if x < y {
-        y - x
-    } else {
-        x - y
-    }
-}
+use utils::abs_diff;
 
 fn is_valid(nums: &collections::HashSet<u64>, x: u64) -> Option<(u64, u64)> {
     nums.iter()
-        .find_map(|y| nums.get(&abs_difference(x, *y)).map(|z| (*y, *z)))
+        .find_map(|y| nums.get(&abs_diff(x, *y)).map(|z| (*y, *z)))
 }
 
 fn find_weakness(nums: Vec<u64>, target: u64) -> Option<u64> {
