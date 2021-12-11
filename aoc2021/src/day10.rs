@@ -41,21 +41,17 @@ fn check(chars: Vec<char>) -> Result<usize, usize> {
 
 fn main() {
     let file = File::open("aoc2021/inputs/day10.input").unwrap();
-    let input = io::BufReader::new(file)
+    let (corrupted, mut incomplete) = io::BufReader::new(file)
         .lines()
         .map(|l| l.unwrap().chars().collect::<Vec<_>>())
-        .collect::<Vec<_>>();
-    let (corrupted, mut incomplete) =
-        input
-            .into_iter()
-            .map(check)
-            .fold((0, vec![]), |(mut corrupted, mut incomplete), r| {
-                match r {
-                    Ok(c) => incomplete.push(c),
-                    Err(c) => corrupted += c,
-                }
-                (corrupted, incomplete)
-            });
+        .map(check)
+        .fold((0, vec![]), |(mut corrupted, mut incomplete), r| {
+            match r {
+                Ok(c) => incomplete.push(c),
+                Err(c) => corrupted += c,
+            }
+            (corrupted, incomplete)
+        });
     incomplete.sort_unstable();
     println!("part 1: {}", corrupted);
     println!("part 2: {}", incomplete[incomplete.len() / 2]);
