@@ -2,41 +2,33 @@ use std::collections::HashMap;
 use std::fs::File;
 use std::io::{self, BufRead};
 
-#[derive(Clone)]
-struct Polymer {
-    inner: HashMap<(char, char), usize>,
-    outer: (char, char),
-}
+type Pair = (char, char);
 
-fn step(polymer: Polymer, rules: &HashMap<(char, char), char>) -> Polymer {
-    let mut inner = HashMap::new();
-    for (pair, count) in polymer.inner {
-        if let Some(&insert) = rules.get(&pair) {
-            *inner.entry((pair.0, insert)).or_insert(0) += count;
-            *inner.entry((insert, pair.1)).or_insert(0) += count;
+fn step(polymer: HashMap<Pair, usize>, rules: &HashMap<Pair, char>) -> HashMap<Pair, usize> {
+    let mut npolymer = HashMap::new();
+    for ((a, c), v) in polymer {
+        if let Some(&b) = rules.get(&(a, c)) {
+            *npolymer.entry((a, b)).or_insert(0) += v;
+            *npolymer.entry((b, c)).or_insert(0) += v;
         }
     }
-    Polymer {
-        inner,
-        outer: polymer.outer,
-    }
+    npolymer
 }
 
-fn cycle(polymer: Polymer, rules: &HashMap<(char, char), char>, iter: usize) -> Polymer {
-    (0..iter).fold(polymer, |p, _| step(p, rules))
-}
-
-fn value(polymer: &Polymer) -> usize {
-    let mut frequencies = HashMap::<char, usize>::new();
-    for ((left, right), count) in polymer.inner.iter() {
-        *frequencies.entry(*left).or_insert(0) += count;
-        *frequencies.entry(*right).or_insert(0) += count;
+fn run(template: String, rules: &HashMap<Pair, char>, steps: usize) -> usize {
+    let mut polymer = HashMap::new();
+    for pair in template.chars().zip(template.chars().skip(1)) {
+        *polymer.entry(pair).or_insert(0) += 1;
     }
-    *frequencies.entry(polymer.outer.0).or_insert(0) += 1;
-    *frequencies.entry(polymer.outer.1).or_insert(0) += 1;
-    let max = frequencies.values().max().unwrap();
-    let min = frequencies.values().min().unwrap();
-    (max - min) / 2
+    let mut freqs = (0..steps)
+        .fold(polymer, |f, _| step(f, rules))
+        .into_iter()
+        .fold(HashMap::new(), |mut freqs, ((a, _), count)| {
+            *freqs.entry(a).or_insert(0) += count;
+            freqs
+        });
+    *freqs.entry(template.chars().last().unwrap()).or_insert(0) += 1;
+    freqs.values().max().unwrap() - freqs.values().min().unwrap()
 }
 
 fn main() {
@@ -55,24 +47,6 @@ fn main() {
             )
         })
         .collect::<HashMap<_, _>>();
-    let mut polymer = Polymer {
-        inner: HashMap::new(),
-        outer: (
-            template.chars().next().unwrap(),
-            template.chars().nth(template.len() - 1).unwrap(),
-        ),
-    };
-    for i in 0..(template.len() - 1) {
-        *polymer
-            .inner
-            .entry((
-                template.chars().nth(i).unwrap(),
-                template.chars().nth(i + 1).unwrap(),
-            ))
-            .or_insert(0) += 1;
-    }
-    let polymer = cycle(polymer, &rules, 10);
-    println!("part 1: {}", value(&polymer));
-    let polymer = cycle(polymer, &rules, 30);
-    println!("part 2: {}", value(&polymer));
+    println!("part 1: {}", run(template.clone(), &rules, 10));
+    println!("part 2: {}", run(template, &rules, 40));
 }
