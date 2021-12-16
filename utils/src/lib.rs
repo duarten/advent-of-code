@@ -1,5 +1,6 @@
 use std::ops;
 
+pub mod bitvec;
 pub mod list;
 
 pub fn abs_diff<T: ops::Sub<Output = T> + Ord>(x: T, y: T) -> T {

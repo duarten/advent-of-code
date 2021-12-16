@@ -3,6 +3,7 @@ use std::{
     fs::File,
     io::{self, BufRead},
 };
+use utils::bitvec::BitVec;
 
 const DIGITS: usize = 12;
 const MASK: usize = (1 << DIGITS) - 1;
@@ -12,19 +13,13 @@ fn ones(pos: usize, values: &[Vec<u8>]) -> Ordering {
     ones.cmp(&(values.len() / 2))
 }
 
-fn to_number(value: impl Iterator<Item = u8>) -> usize {
-    value
-        .enumerate()
-        .map(|(idx, value)| (value as usize) << (DIGITS - 1 - idx))
-        .reduce(std::ops::BitOr::bitor)
-        .unwrap() as usize
-}
-
 fn gamma(values: &[Vec<u8>]) -> usize {
-    to_number((0..DIGITS).map(|idx| match ones(idx, values) {
-        Ordering::Less => 0,
-        _ => 1,
-    }))
+    (0..DIGITS)
+        .map(|idx| match ones(idx, values) {
+            Ordering::Less => 0_u8,
+            _ => 1_u8,
+        })
+        .to_number()
 }
 
 fn filter_criteria(mut values: Vec<Vec<u8>>, criteria: impl Fn(usize, &[Vec<u8>]) -> u8) -> usize {
@@ -34,7 +29,7 @@ fn filter_criteria(mut values: Vec<Vec<u8>>, criteria: impl Fn(usize, &[Vec<u8>]
         values.retain(|v| v[idx] == c);
         idx += 1;
     }
-    to_number(values.swap_remove(0).into_iter())
+    values.swap_remove(0).into_iter().to_number()
 }
 
 fn main() {
