@@ -107,5 +107,6 @@ path = "src/day25.rs"
 [dependencies]
 anyhow = "1.0"
 lazy_static = "1.4"
+md5 = "0.7.0"
 regex = "1.4"
 utils = { path = "../utils" }
