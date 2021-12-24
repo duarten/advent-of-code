@@ -10,3 +10,12 @@ pub fn abs_diff<T: ops::Sub<Output = T> + Ord>(x: T, y: T) -> T {
         x - y
     }
 }
+
+pub fn reverse(mut n: usize) -> usize {
+    let mut reversed = 0;
+    while n != 0 {
+        reversed = reversed * 10 + n % 10;
+        n /= 10;
+    }
+    reversed
+}
