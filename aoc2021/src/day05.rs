@@ -24,7 +24,7 @@ impl str::FromStr for Point {
     type Err = anyhow::Error;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        let (x, y) = s.split_once(",").expect("point");
+        let (x, y) = s.split_once(',').expect("point");
         Ok(Self {
             x: x.parse()?,
             y: y.parse()?,

@@ -62,7 +62,7 @@ where
     }
     cache
         .into_iter()
-        .filter_map(|(c, (active, an))| (an == 3 || active && an == 2).then(|| c))
+        .filter_map(|(c, (active, an))| (an == 3 || active && an == 2).then_some(c))
         .collect()
 }
 

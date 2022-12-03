@@ -5,7 +5,7 @@ use std::ops::IndexMut;
 // Sadness: Rust doesn't have a good linked list implementation
 // with O(1) removals.
 
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NodeId(pub NonZeroUsize);
 
 impl NodeId {

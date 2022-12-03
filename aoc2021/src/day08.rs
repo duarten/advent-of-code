@@ -69,8 +69,7 @@ fn main() {
 
     let p1 = input
         .iter()
-        .map(|(_, digits)| digits)
-        .flatten()
+        .flat_map(|(_, digits)| digits)
         .filter(|digit| matches!(digit.len(), 2 | 4 | 3 | 7))
         .count();
     println!("part 1: {}", p1);

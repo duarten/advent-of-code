@@ -1,16 +1,8 @@
 [package]
 name = "aoc2015"
 version = "0.1.0"
-authors = ["Duarte Nunes <duarte@hey.com>"]
+authors = ["Duarte Nunes <duarte@fastmail.com>"]
 edition = "2021"
-
-[dependencies]
-anyhow = "1.0"
-itertools = "0.10"
-lazy_static = "1.4"
-md5 = "0.7"
-regex = "1.4"
-serde_json = "1.0"
 
 [[bin]]
 name = "day01"
@@ -111,3 +103,11 @@ path = "src/day24.rs"
 [[bin]]
 name = "day25"
 path = "src/day25.rs"
+
+[dependencies]
+anyhow = { workspace = true }
+itertools = { workspace = true }
+lazy_static = { workspace = true }
+md5 = { workspace = true }
+regex = { workspace = true }
+serde_json = { workspace = true }

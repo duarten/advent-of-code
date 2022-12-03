@@ -27,7 +27,7 @@ fn matches<'a>(
     rules: &HashMap<usize, NumberedRule>,
     max_depth: usize,
 ) -> Vec<Chars<'a>> {
-    match s.get(0).and_then(|idx| rules.get(idx)) {
+    match s.first().and_then(|idx| rules.get(idx)) {
         None => vec![cs],
         Some(r) if r.idx == n && max_depth == 0 => vec![],
         Some(r) => match_internal(

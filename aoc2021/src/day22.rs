@@ -33,7 +33,7 @@ impl Cube {
             intersect_range(&self.2, &other.2),
         );
         (c.0.start() <= c.0.end() && c.1.start() <= c.1.end() && c.2.start() <= c.2.end())
-            .then(|| c)
+            .then_some(c)
     }
 }
 
