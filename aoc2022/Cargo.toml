@@ -20,6 +20,26 @@ path = "src/day03.rs"
 name = "day04"
 path = "src/day04.rs"
 
+[[bin]]
+name = "day05"
+path = "src/day05.rs"
+
+[[bin]]
+name = "day06"
+path = "src/day06.rs"
+
+[[bin]]
+name = "day07"
+path = "src/day07.rs"
+
+[[bin]]
+name = "day08"
+path = "src/day08.rs"
+
+[[bin]]
+name = "day09"
+path = "src/day09.rs"
+
 [dependencies]
 anyhow = { workspace = true }
 cached = { workspace = true }
