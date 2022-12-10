@@ -1,5 +1,3 @@
-use utils::abs_diff;
-
 fn main() {
     let file = std::fs::read_to_string("aoc2021/inputs/day07.input").unwrap();
     let mut fuel = file
@@ -8,7 +6,7 @@ fn main() {
         .collect::<Vec<usize>>();
     fuel.sort_unstable();
     let cheapest: usize = (fuel[0]..fuel[fuel.len() - 1])
-        .map(|target| fuel.iter().map(|f| abs_diff(*f, target)).sum())
+        .map(|target| fuel.iter().map(|f| f.abs_diff(target)).sum())
         .min()
         .unwrap();
     println!("part 1: {}", cheapest);
@@ -16,7 +14,7 @@ fn main() {
         .map(|target| {
             fuel.iter()
                 .map(|f| {
-                    let diff = abs_diff(*f, target);
+                    let diff = f.abs_diff(target);
                     diff * (1 + diff) / 2
                 })
                 .sum()

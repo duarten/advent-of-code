@@ -51,7 +51,7 @@ fn main() {
         if cycle % 40 == 20 {
             signal_strength += cycle as isize * x;
         }
-        pixels.push(if utils::abs_diff(x, (cycle as isize - 1) % 40) < 2 {
+        pixels.push(if x.abs_diff((cycle as isize - 1) % 40) < 2 {
             '#'
         } else {
             '.'

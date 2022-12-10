@@ -6,8 +6,6 @@ use std::{
     str,
 };
 
-use utils::abs_diff;
-
 #[derive(Debug, PartialEq, Eq, Hash)]
 struct Point {
     x: usize,
@@ -16,7 +14,7 @@ struct Point {
 
 impl Point {
     fn diag(&self, other: &Point) -> bool {
-        abs_diff(self.x, other.x) == abs_diff(self.y, other.y)
+        self.x.abs_diff(other.x) == self.y.abs_diff(other.y)
     }
 }
 

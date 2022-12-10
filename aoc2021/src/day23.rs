@@ -5,8 +5,6 @@ use std::{
     io::{self, BufRead},
 };
 
-use utils::abs_diff;
-
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 struct Room {
     amphipods: Vec<Amphipod>,
@@ -54,7 +52,7 @@ impl Amphipod {
 }
 
 fn move_cost(a: Amphipod, hallway_pos: usize, room: &Room, to_hallway: bool) -> usize {
-    let mut cost = abs_diff(hallway_pos, room.hallway_pos());
+    let mut cost = hallway_pos.abs_diff(room.hallway_pos());
     cost += room.free_pos() + (to_hallway as usize);
     cost * a.cost()
 }
