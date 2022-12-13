@@ -52,10 +52,15 @@ path = "src/day11.rs"
 name = "day12"
 path = "src/day12.rs"
 
+[[bin]]
+name = "day13"
+path = "src/day13.rs"
+
 [dependencies]
 anyhow = { workspace = true }
 cached = { workspace = true }
 itertools = { workspace = true }
 lazy_static = { workspace = true }
+nom = { workspace = true }
 regex = { workspace = true }
 utils = { path = "../utils" }
