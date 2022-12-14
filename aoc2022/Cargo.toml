@@ -56,6 +56,10 @@ path = "src/day12.rs"
 name = "day13"
 path = "src/day13.rs"
 
+[[bin]]
+name = "day14"
+path = "src/day14.rs"
+
 [dependencies]
 anyhow = { workspace = true }
 cached = { workspace = true }

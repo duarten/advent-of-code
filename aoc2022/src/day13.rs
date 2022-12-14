@@ -11,7 +11,7 @@ use nom::{
 #[derive(Clone, Debug)]
 enum Packet {
     List(Vec<Packet>),
-    Literal(usize),
+    Literal(u8),
 }
 
 impl PartialEq for Packet {
@@ -40,14 +40,8 @@ impl Ord for Packet {
 }
 
 fn packet(input: &str) -> IResult<&str, Packet> {
-    alt((
-        map(list, Packet::List),
-        map(u8, |c| Packet::Literal(c as usize)),
-    ))(input)
-}
-
-fn list(input: &str) -> IResult<&str, Vec<Packet>> {
-    delimited(tag("["), separated_list0(tag(","), packet), tag("]"))(input)
+    let list = delimited(tag("["), separated_list0(tag(","), packet), tag("]"));
+    alt((map(list, Packet::List), map(u8, Packet::Literal)))(input)
 }
 
 fn main() {
