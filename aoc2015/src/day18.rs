@@ -1,6 +1,9 @@
+use std::{
+    fs,
+    io::{self, BufRead},
+};
+
 use anyhow::Result;
-use std::fs;
-use std::io::{self, BufRead};
 
 const LINE_SIZE: i64 = 100;
 

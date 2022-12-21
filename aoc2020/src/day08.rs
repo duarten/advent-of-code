@@ -1,9 +1,12 @@
+use std::{
+    collections,
+    fmt,
+    fs,
+    io::{self, BufRead},
+    str,
+};
+
 use anyhow::{anyhow, Result};
-use std::collections;
-use std::fmt;
-use std::fs;
-use std::io::{self, BufRead};
-use std::str;
 
 #[derive(Debug)]
 enum ExecError {

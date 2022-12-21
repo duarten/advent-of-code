@@ -1,5 +1,7 @@
-use std::fs::File;
-use std::io::{BufRead, BufReader};
+use std::{
+    fs::File,
+    io::{BufRead, BufReader},
+};
 
 // What's the smallest set of values that add up to capacity?
 // Exhaustive solution to the multiple subset sum problem.

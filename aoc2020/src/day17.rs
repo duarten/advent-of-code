@@ -1,8 +1,10 @@
-use std::collections::HashMap;
-use std::fs::File;
-use std::hash::Hash;
-use std::io::{self, BufRead};
-use std::mem::{self, MaybeUninit};
+use std::{
+    collections::HashMap,
+    fs::File,
+    hash::Hash,
+    io::{self, BufRead},
+    mem::{self, MaybeUninit},
+};
 
 #[derive(Debug, Clone, Copy, Eq, Hash, PartialEq)]
 struct Cube(i64, i64, i64, i64);

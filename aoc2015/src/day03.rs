@@ -1,5 +1,4 @@
-use std::collections::HashSet;
-use std::fs;
+use std::{collections::HashSet, fs};
 
 #[derive(Clone, Default, Eq, Hash, PartialEq)]
 struct Coord {

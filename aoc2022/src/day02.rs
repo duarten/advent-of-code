@@ -1,5 +1,7 @@
-use std::fs::File;
-use std::io::{self, BufRead};
+use std::{
+    fs::File,
+    io::{self, BufRead},
+};
 
 fn shape_score(shape: &str, base: char) -> usize {
     (shape.as_bytes().first().unwrap() - base as u8 + 1) as usize

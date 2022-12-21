@@ -1,5 +1,4 @@
-use std::collections::HashMap;
-use std::fs;
+use std::{collections::HashMap, fs};
 
 #[derive(Default, Eq, Hash, PartialEq)]
 struct Coord {

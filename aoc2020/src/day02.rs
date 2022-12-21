@@ -1,6 +1,8 @@
-use std::fs::File;
-use std::io::{self, BufRead};
-use std::str::FromStr;
+use std::{
+    fs::File,
+    io::{self, BufRead},
+    str::FromStr,
+};
 
 #[derive(Debug)]
 struct Policy {

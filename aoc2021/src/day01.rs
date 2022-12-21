@@ -1,5 +1,7 @@
-use std::fs::File;
-use std::io::{self, BufRead};
+use std::{
+    fs::File,
+    io::{self, BufRead},
+};
 
 fn count_increases(entries: &[usize]) -> usize {
     entries.windows(2).filter(|w| w[1] > w[0]).count()

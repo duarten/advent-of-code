@@ -1,14 +1,14 @@
+use std::{
+    cmp::Ordering,
+    collections::BinaryHeap,
+    fs::File,
+    io::{BufRead, BufReader},
+    str::FromStr,
+};
+
 use anyhow::Result;
-
 use itertools::iterate;
-
 use regex::Regex;
-
-use std::cmp::Ordering;
-use std::collections::BinaryHeap;
-use std::fs::File;
-use std::io::{BufRead, BufReader};
-use std::str::FromStr;
 
 #[derive(Eq, PartialEq)]
 struct Reindeer {

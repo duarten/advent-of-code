@@ -1,6 +1,8 @@
-use std::collections::HashMap;
-use std::fs::File;
-use std::io::{self, BufRead};
+use std::{
+    collections::HashMap,
+    fs::File,
+    io::{self, BufRead},
+};
 
 type Pair = (char, char);
 

@@ -1,4 +1,5 @@
 use std::fs::{self};
+
 use utils::bitvec::{char_to_bits, BitVec};
 
 fn parse_literal(literal: &mut impl Iterator<Item = u8>) -> usize {

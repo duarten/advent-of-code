@@ -1,5 +1,6 @@
-use serde_json::Value;
 use std::fs;
+
+use serde_json::Value;
 
 fn sum(v: Value, skip_red: bool) -> i64 {
     match v {

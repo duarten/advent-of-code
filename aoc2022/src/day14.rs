@@ -6,8 +6,12 @@ use std::{
 
 use itertools::{Either, Itertools};
 use nom::{
-    bytes::complete::tag, character::complete::u32, combinator::map, multi::separated_list0,
-    sequence::tuple, IResult,
+    bytes::complete::tag,
+    character::complete::u32,
+    combinator::map,
+    multi::separated_list0,
+    sequence::tuple,
+    IResult,
 };
 
 type Offset = (u32, u32);

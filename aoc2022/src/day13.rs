@@ -4,8 +4,13 @@ use std::{
 };
 
 use nom::{
-    branch::alt, bytes::complete::tag, character::complete::u8, combinator::map,
-    multi::separated_list0, sequence::delimited, IResult,
+    branch::alt,
+    bytes::complete::tag,
+    character::complete::u8,
+    combinator::map,
+    multi::separated_list0,
+    sequence::delimited,
+    IResult,
 };
 
 #[derive(Clone, Debug)]

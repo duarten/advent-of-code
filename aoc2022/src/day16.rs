@@ -1,13 +1,19 @@
-use itertools::{Either, Itertools};
-use nom::{
-    branch::alt, bytes::complete::tag, character::complete::alpha1, character::complete::u32,
-    combinator::map, multi::separated_list0, sequence::tuple, IResult,
-};
 use std::{
     collections::{HashMap, HashSet},
     fs::File,
     io::{self, BufRead},
     iter::once,
+};
+
+use itertools::{Either, Itertools};
+use nom::{
+    branch::alt,
+    bytes::complete::tag,
+    character::complete::{alpha1, u32},
+    combinator::map,
+    multi::separated_list0,
+    sequence::tuple,
+    IResult,
 };
 
 fn valve(input: &str) -> IResult<&str, (String, (usize, Vec<String>))> {

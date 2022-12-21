@@ -1,5 +1,4 @@
-use std::collections;
-use std::fs;
+use std::{collections, fs};
 
 #[derive(Default)]
 struct TurnsSeens {

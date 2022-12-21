@@ -1,6 +1,9 @@
+use std::{
+    fs,
+    io::{self, BufRead},
+};
+
 use anyhow::{anyhow, Result};
-use std::fs;
-use std::io::{self, BufRead};
 
 const ROW_SIZE: usize = 98;
 

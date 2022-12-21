@@ -1,5 +1,8 @@
-use std::io::{BufRead, BufReader};
-use std::{cmp::max, fs::File};
+use std::{
+    cmp::max,
+    fs::File,
+    io::{BufRead, BufReader},
+};
 
 use regex::Regex;
 

@@ -1,8 +1,11 @@
+use std::{
+    fs,
+    io::{self, BufRead},
+    str,
+};
+
 use anyhow::{anyhow, Result};
 use regex::Regex;
-use std::fs;
-use std::io::{self, BufRead};
-use std::str;
 
 #[derive(Debug)]
 enum Command {

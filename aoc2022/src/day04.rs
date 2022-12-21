@@ -1,6 +1,8 @@
-use std::fs::File;
-use std::io::{self, BufRead};
-use std::ops::RangeInclusive;
+use std::{
+    fs::File,
+    io::{self, BufRead},
+    ops::RangeInclusive,
+};
 
 fn make_range(r: &str) -> RangeInclusive<usize> {
     let (start, end) = r.split_once('-').unwrap();

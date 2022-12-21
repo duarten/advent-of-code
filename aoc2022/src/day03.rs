@@ -1,6 +1,8 @@
-use std::collections::HashSet;
-use std::fs::File;
-use std::io::{self, BufRead};
+use std::{
+    collections::HashSet,
+    fs::File,
+    io::{self, BufRead},
+};
 
 fn priorities(c: &str) -> HashSet<u8> {
     c.bytes()

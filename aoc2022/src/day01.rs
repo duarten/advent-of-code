@@ -1,5 +1,7 @@
-use std::fs::File;
-use std::io::{self, BufRead};
+use std::{
+    fs::File,
+    io::{self, BufRead},
+};
 
 fn main() {
     let file = File::open("aoc2022/inputs/day01.input").unwrap();

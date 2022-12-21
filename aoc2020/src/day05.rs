@@ -1,6 +1,8 @@
-use std::fs::File;
-use std::io::{self, BufRead};
-use std::ops::Add;
+use std::{
+    fs::File,
+    io::{self, BufRead},
+    ops::Add,
+};
 
 fn parse_id(guide: &str) -> usize {
     let row = guide[..7]

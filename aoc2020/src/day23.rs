@@ -1,5 +1,4 @@
-use std::fs;
-use std::num::NonZeroUsize;
+use std::{fs, num::NonZeroUsize};
 
 use utils::list::{Arena, CircularNodeIterator, NodeId};
 

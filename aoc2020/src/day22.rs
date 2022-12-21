@@ -1,7 +1,10 @@
+use std::{
+    collections::{HashSet, VecDeque},
+    fs,
+    str::FromStr,
+};
+
 use anyhow::Result;
-use std::collections::{HashSet, VecDeque};
-use std::fs;
-use std::str::FromStr;
 
 type Card = usize;
 
@@ -66,11 +69,7 @@ fn combat(mut d1: Deck, mut d2: Deck) -> Deck {
             d2.keep(c2, c1);
         }
     }
-    if d1.is_empty() {
-        d2
-    } else {
-        d1
-    }
+    if d1.is_empty() { d2 } else { d1 }
 }
 
 fn recursive_combat(mut d1: Deck, mut d2: Deck) -> Deck {
@@ -92,11 +91,7 @@ fn recursive_combat(mut d1: Deck, mut d2: Deck) -> Deck {
             d2.keep(c2, c1);
         }
     }
-    if d1.is_empty() {
-        d2
-    } else {
-        d1
-    }
+    if d1.is_empty() { d2 } else { d1 }
 }
 
 fn main() -> Result<()> {

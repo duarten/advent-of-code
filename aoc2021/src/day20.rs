@@ -2,6 +2,7 @@ use std::{
     fs::File,
     io::{self, BufRead},
 };
+
 use utils::bitvec::BitVec;
 
 type Offset = (i64, i64);

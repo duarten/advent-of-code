@@ -1,9 +1,11 @@
+use std::{
+    collections::HashSet,
+    fs,
+    io::{self, BufRead},
+};
+
 use anyhow::Result;
-use itertools::iterate;
-use itertools::Itertools;
-use std::collections::HashSet;
-use std::fs;
-use std::io::{self, BufRead};
+use itertools::{iterate, Itertools};
 
 fn all(target: &str, transformations: &[(String, String)]) -> usize {
     let mut set = HashSet::<String>::new();

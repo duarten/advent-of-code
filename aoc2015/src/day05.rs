@@ -1,5 +1,7 @@
-use std::fs::File;
-use std::io::{BufRead, BufReader};
+use std::{
+    fs::File,
+    io::{BufRead, BufReader},
+};
 
 fn is_nice1(s: &str) -> bool {
     s.as_bytes().windows(2).any(|w| w[0] == w[1])

@@ -1,9 +1,7 @@
+use std::{collections, fs, ops, str::FromStr};
+
 use anyhow::{anyhow, Result};
 use regex::Regex;
-use std::collections;
-use std::fs;
-use std::ops;
-use std::str::FromStr;
 
 #[derive(Debug)]
 struct Ticket {

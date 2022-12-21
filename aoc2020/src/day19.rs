@@ -1,9 +1,11 @@
+use std::{
+    collections::HashMap,
+    fs,
+    str::{Chars, FromStr},
+};
+
 use anyhow::anyhow;
 use regex::{Captures, Regex};
-use std::collections::HashMap;
-use std::fs;
-use std::str::Chars;
-use std::str::FromStr;
 
 type Sequence = Vec<usize>;
 

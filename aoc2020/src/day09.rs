@@ -1,6 +1,8 @@
-use std::collections;
-use std::fs;
-use std::io::{self, BufRead};
+use std::{
+    collections,
+    fs,
+    io::{self, BufRead},
+};
 
 fn is_valid(nums: &collections::HashSet<u64>, x: u64) -> Option<(u64, u64)> {
     nums.iter()

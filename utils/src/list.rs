@@ -1,6 +1,7 @@
-use std::num::NonZeroUsize;
-use std::ops::Index;
-use std::ops::IndexMut;
+use std::{
+    num::NonZeroUsize,
+    ops::{Index, IndexMut},
+};
 
 // Sadness: Rust doesn't have a good linked list implementation
 // with O(1) removals.

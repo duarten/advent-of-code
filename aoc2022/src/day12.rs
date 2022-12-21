@@ -1,7 +1,9 @@
-use std::collections::{BinaryHeap, HashMap};
-use std::fs::File;
-use std::io::{self, BufRead};
-use std::ops::Index;
+use std::{
+    collections::{BinaryHeap, HashMap},
+    fs::File,
+    io::{self, BufRead},
+    ops::Index,
+};
 
 type Offset = (usize, usize);
 

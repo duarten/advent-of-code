@@ -1,8 +1,11 @@
+use std::{
+    fs,
+    io::{self, BufRead},
+    str,
+};
+
 use anyhow::{anyhow, Result};
 use itertools::iterate;
-use std::fs;
-use std::io::{self, BufRead};
-use std::str;
 
 #[derive(Debug, Clone, Copy)]
 enum Register {

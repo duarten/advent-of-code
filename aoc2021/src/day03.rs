@@ -3,6 +3,7 @@ use std::{
     fs::File,
     io::{self, BufRead},
 };
+
 use utils::bitvec::BitVec;
 
 const DIGITS: usize = 12;

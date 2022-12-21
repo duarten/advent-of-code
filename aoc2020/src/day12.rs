@@ -1,7 +1,10 @@
+use std::{
+    fs,
+    io::{self, BufRead},
+    str::FromStr,
+};
+
 use anyhow::{anyhow, Result};
-use std::fs;
-use std::io::{self, BufRead};
-use std::str::FromStr;
 
 #[derive(Clone, Copy, Debug, PartialEq)]
 enum Cardinal {

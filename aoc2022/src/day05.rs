@@ -1,6 +1,8 @@
-use std::collections::VecDeque;
-use std::fs::File;
-use std::io::{self, BufRead};
+use std::{
+    collections::VecDeque,
+    fs::File,
+    io::{self, BufRead},
+};
 
 use itertools::Itertools;
 

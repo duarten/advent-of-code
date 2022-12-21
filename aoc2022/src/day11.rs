@@ -1,6 +1,4 @@
-use std::collections::VecDeque;
-use std::str::FromStr;
-use std::{convert::Infallible, fs};
+use std::{collections::VecDeque, convert::Infallible, fs, str::FromStr};
 
 #[derive(Clone)]
 enum Operand {

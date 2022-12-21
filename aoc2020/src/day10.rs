@@ -1,5 +1,7 @@
-use std::fs;
-use std::io::{self, BufRead};
+use std::{
+    fs,
+    io::{self, BufRead},
+};
 
 fn count_differences(jolts: &[u64]) -> (u64, u64) {
     let mut one = 0u64;

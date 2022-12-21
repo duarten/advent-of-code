@@ -1,5 +1,7 @@
-use std::fs::File;
-use std::io::{self, BufRead};
+use std::{
+    fs::File,
+    io::{self, BufRead},
+};
 
 fn check_slope(trees: &[String], right: usize, down: usize) -> usize {
     trees

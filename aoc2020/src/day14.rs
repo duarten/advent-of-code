@@ -1,9 +1,12 @@
+use std::{
+    collections,
+    fs,
+    io::{self, BufRead},
+    str::FromStr,
+};
+
 use anyhow::Result;
 use regex::Regex;
-use std::collections;
-use std::fs;
-use std::io::{self, BufRead};
-use std::str::FromStr;
 
 #[derive(Clone, Debug, Default)]
 struct Mask {

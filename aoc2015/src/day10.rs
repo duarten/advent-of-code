@@ -1,6 +1,6 @@
-use itertools::Itertools;
-
 use std::fs;
+
+use itertools::Itertools;
 
 fn next(prev: Vec<u8>) -> Vec<u8> {
     prev.into_iter()

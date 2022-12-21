@@ -1,10 +1,11 @@
-use anyhow::{bail, Result};
-use std::collections::HashSet;
-use std::str;
 use std::{
+    collections::HashSet,
     fs::File,
     io::{self, BufRead},
+    str,
 };
+
+use anyhow::{bail, Result};
 use utils::reverse;
 
 type Reg = usize;

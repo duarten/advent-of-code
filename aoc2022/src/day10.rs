@@ -1,7 +1,9 @@
-use std::convert::Infallible;
-use std::fs;
-use std::io::{self, BufRead};
-use std::str;
+use std::{
+    convert::Infallible,
+    fs,
+    io::{self, BufRead},
+    str,
+};
 
 enum Instruction {
     Add(isize),

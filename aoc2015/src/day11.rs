@@ -1,7 +1,6 @@
-use itertools::iterate;
+use std::{collections::HashSet, fs};
 
-use std::collections::HashSet;
-use std::fs;
+use itertools::iterate;
 
 fn next(mut prev: Vec<u8>) -> Vec<u8> {
     for i in 0..8 {

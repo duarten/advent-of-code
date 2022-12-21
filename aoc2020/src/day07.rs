@@ -1,6 +1,8 @@
-use std::collections::{HashMap, HashSet};
-use std::fs::File;
-use std::io::{self, BufRead};
+use std::{
+    collections::{HashMap, HashSet},
+    fs::File,
+    io::{self, BufRead},
+};
 
 use regex::Regex;
 
