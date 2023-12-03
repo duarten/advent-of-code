@@ -163,7 +163,7 @@ fn calculate_state(state: &State, spell: Spell, min_mana: usize) -> (usize, Opti
     let spent = state.spent + spell.mana();
     let new_effect = new_player.attack(&mut new_boss, &new_effects, spell);
     turn_end(&mut new_effects);
-    new_effects.extend(new_effect.into_iter());
+    new_effects.extend(new_effect);
     new_boss.attack(&mut new_player, &new_effects);
     turn_end(&mut new_effects);
     if new_boss.hit_points == 0 {

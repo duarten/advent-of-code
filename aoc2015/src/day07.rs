@@ -107,7 +107,7 @@ impl Instructions {
 fn eval(mut insts: Vec<Instructions>) -> u16 {
     let mut wires = Wires::new();
     while !insts.is_empty() {
-        insts.retain(|inst| matches!(inst.exec(&mut wires), None))
+        insts.retain(|inst| inst.exec(&mut wires).is_none())
     }
     wires["a"]
 }

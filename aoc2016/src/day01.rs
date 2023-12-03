@@ -1,18 +1,16 @@
 use std::{collections::HashSet, fs};
 
 #[derive(Clone, Copy)]
+#[derive(Default)]
 enum Direction {
+    #[default]
     North = 0,
     East = 1,
     South = 2,
     West = 3,
 }
 
-impl Default for Direction {
-    fn default() -> Self {
-        Direction::North
-    }
-}
+
 
 impl From<usize> for Direction {
     fn from(value: usize) -> Self {

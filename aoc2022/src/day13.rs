@@ -29,18 +29,18 @@ impl Eq for Packet {}
 
 impl PartialOrd for Packet {
     fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        match (self, other) {
-            (Packet::Literal(l), Packet::Literal(r)) => l.partial_cmp(r),
-            (Packet::List(l), Packet::List(r)) => l.partial_cmp(r),
-            (Packet::Literal(l), Packet::List(r)) => vec![Packet::Literal(*l)].partial_cmp(r),
-            (Packet::List(l), Packet::Literal(r)) => l.partial_cmp(&vec![Packet::Literal(*r)]),
-        }
+        Some(self.cmp(other))
     }
 }
 
 impl Ord for Packet {
     fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-        self.partial_cmp(other).unwrap()
+        match (self, other) {
+            (Packet::Literal(l), Packet::Literal(r)) => l.cmp(r),
+            (Packet::List(l), Packet::List(r)) => l.cmp(r),
+            (Packet::Literal(l), Packet::List(r)) => vec![Packet::Literal(*l)].cmp(r),
+            (Packet::List(l), Packet::Literal(r)) => l.cmp(&vec![Packet::Literal(*r)]),
+        }
     }
 }
 

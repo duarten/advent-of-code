@@ -38,7 +38,7 @@ fn find_containers<'a>(b: Bag<'a>, m: &HashMap<Bag<'a>, Vec<Bag<'a>>>) -> HashSe
     ret
 }
 
-fn count_bags<'a>(b: Bag<'a>, m: &HashMap<Bag, HashSet<Container>>) -> usize {
+fn count_bags(b: Bag<'_>, m: &HashMap<Bag, HashSet<Container>>) -> usize {
     1 + match m.get(b) {
         Some(c) => c
             .iter()

@@ -33,9 +33,9 @@ impl Job {
         }
     }
 
-    fn path_to<'a>(
+    fn path_to(
         &self,
-        monkeys: &'a HashMap<String, Job>,
+        monkeys: &HashMap<String, Job>,
         target: &str,
         path: &mut HashSet<String>,
     ) -> bool {
@@ -54,7 +54,7 @@ impl Job {
     }
 }
 
-fn path_to<'a>(monkeys: &'a HashMap<String, Job>, start: &str, key: &str) -> HashSet<String> {
+fn path_to(monkeys: &HashMap<String, Job>, start: &str, key: &str) -> HashSet<String> {
     let mut result = HashSet::new();
     monkeys[start].path_to(monkeys, key, &mut result);
     result

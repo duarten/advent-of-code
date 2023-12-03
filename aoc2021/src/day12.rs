@@ -28,11 +28,11 @@ fn main() {
         let (from, to) = line.split_once('-').unwrap();
         connections
             .entry(from.to_owned())
-            .or_insert_with(Vec::new)
+            .or_default()
             .push(to.to_owned());
         connections
             .entry(to.to_owned())
-            .or_insert_with(Vec::new)
+            .or_default()
             .push(from.to_owned());
     }
     let mut to_visit = vec![Path::new("start", HashSet::new(), false)];

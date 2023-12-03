@@ -88,7 +88,7 @@ fn turn(monkeys: &mut [Monkey], current: usize, decrease: impl Fn(usize) -> usiz
     while let Some(worry) = monkeys[current].items.pop_front() {
         monkeys[current].inspected += 1;
         let worry = decrease(monkeys[current].operation.apply(worry));
-        let target = if worry % monkeys[current].test as usize == 0 {
+        let target = if worry % monkeys[current].test == 0 {
             monkeys[current].on_true
         } else {
             monkeys[current].on_false

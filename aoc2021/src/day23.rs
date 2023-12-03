@@ -81,7 +81,7 @@ impl PartialEq for State {
 
 impl PartialOrd for State {
     fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        other.energy.partial_cmp(&self.energy)
+        Some(self.cmp(other))
     }
 }
 

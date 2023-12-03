@@ -57,7 +57,7 @@ impl Eq for Path {}
 
 impl PartialOrd for Path {
     fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        other.projected_cost.partial_cmp(&self.projected_cost)
+        Some(self.cmp(other))
     }
 }
 

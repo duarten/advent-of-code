@@ -31,7 +31,7 @@ fn main() {
     for line in lines.by_ref().take_while(|l| !l.starts_with(' ')) {
         for (idx, item) in line.into_bytes().chunks(4).enumerate() {
             let value = item[1];
-            if (b'A'..=b'Z').contains(&value) {
+            if value.is_ascii_uppercase() {
                 stacks1[idx].push_back(value);
             }
         }

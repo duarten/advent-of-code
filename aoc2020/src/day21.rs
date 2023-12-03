@@ -24,7 +24,7 @@ fn main() {
                     .and_modify(|afs| {
                         let v = afs
                             .iter_mut()
-                            .filter(|a| fs.iter().find(|x| x == a) != None)
+                            .filter(|a| fs.iter().any(|x| x == a))
                             .map(|a| a.to_owned())
                             .collect::<Vec<String>>();
                         *afs = v;
@@ -35,7 +35,7 @@ fn main() {
     }
     let s: usize = foods
         .iter()
-        .filter(|(f, _)| allergens.iter().find(|(_, fs)| fs.contains(f)) == None)
+        .filter(|(f, _)| !allergens.iter().any(|(_, fs)| fs.contains(f)))
         .map(|(_, s)| s)
         .sum();
     println!("part 1: {}", s);

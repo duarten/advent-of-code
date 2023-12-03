@@ -69,9 +69,7 @@ impl Blueprint {
 
     fn should_build(&self, pack: &Pack, robot_type: Material, built: bool) -> bool {
         let max_cost = self
-            .0
-            .iter()
-            .map(|(_, c)| *c.0.get(&robot_type).unwrap_or(&0))
+            .0.values().map(|c| *c.0.get(&robot_type).unwrap_or(&0))
             .max()
             .unwrap_or(0);
         // Are we producing enough of the material to build more robots?

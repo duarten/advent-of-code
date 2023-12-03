@@ -64,7 +64,7 @@ fn match_internal<'a>(
 impl NumberedRule {
     fn matches(&self, s: &str, rules: &HashMap<usize, NumberedRule>) -> bool {
         let res = match_internal(self, s.chars(), rules, 4);
-        res.into_iter().any(|mut cs| cs.next() == None)
+        res.into_iter().any(|mut cs| cs.next().is_none())
     }
 }
 

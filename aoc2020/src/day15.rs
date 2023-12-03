@@ -7,7 +7,7 @@ struct TurnsSeens {
 }
 
 fn next(prev: usize, seen: &mut collections::HashMap<usize, TurnsSeens>) -> usize {
-    let ts = seen.entry(prev).or_insert_with(TurnsSeens::default);
+    let ts = seen.entry(prev).or_default();
     let n = ts.positions.len();
     if ts.i > 1 {
         ts.positions[(ts.i + 1) % n] - ts.positions[ts.i % n]
@@ -17,7 +17,7 @@ fn next(prev: usize, seen: &mut collections::HashMap<usize, TurnsSeens>) -> usiz
 }
 
 fn record(x: usize, idx: usize, seen: &mut collections::HashMap<usize, TurnsSeens>) {
-    let ts = seen.entry(x).or_insert_with(TurnsSeens::default);
+    let ts = seen.entry(x).or_default();
     ts.positions[ts.i % ts.positions.len()] = idx;
     ts.i += 1;
 }

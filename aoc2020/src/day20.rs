@@ -244,7 +244,7 @@ impl Picture {
         let mut t = self
             .tiles
             .iter()
-            .find(|t| t.top == None && t.left == None)
+            .find(|t| t.top.is_none() && t.left.is_none())
             .unwrap();
         for _ in 0..x {
             let pos = find_tile_position(t.right.unwrap(), &self.tiles).unwrap();

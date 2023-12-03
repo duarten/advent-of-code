@@ -51,25 +51,21 @@ fn fight(mut player: Entity, mut boss: Entity) -> Battle {
 }
 
 fn main() {
-    let weapons = vec![(8, 4, 0), (10, 5, 0), (25, 6, 0), (40, 7, 0), (74, 8, 0)];
-    let armor = vec![
-        (0, 0, 0),
+    let weapons = [(8, 4, 0), (10, 5, 0), (25, 6, 0), (40, 7, 0), (74, 8, 0)];
+    let armor = [(0, 0, 0),
         (13, 0, 1),
         (31, 0, 2),
         (53, 0, 3),
         (75, 0, 4),
-        (102, 0, 5),
-    ];
-    let rings = vec![
-        (0, 0, 0),
+        (102, 0, 5)];
+    let rings = [(0, 0, 0),
         (0, 0, 0),
         (25, 1, 0),
         (50, 2, 0),
         (100, 3, 0),
         (20, 0, 1),
         (40, 0, 2),
-        (80, 0, 3),
-    ];
+        (80, 0, 3)];
     let mut cheapest = usize::MAX;
     let mut expensivest = usize::MIN;
     for w in weapons.iter().cloned() {

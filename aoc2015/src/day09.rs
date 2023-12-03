@@ -73,14 +73,14 @@ fn main() {
                 let distance: usize = g.get(3).unwrap().as_str().parse().unwrap();
                 connections
                     .entry(from.clone())
-                    .or_insert_with(Vec::new)
+                    .or_default()
                     .push(Connection {
                         to: to.clone(),
                         distance,
                     });
                 connections
                     .entry(to)
-                    .or_insert_with(Vec::new)
+                    .or_default()
                     .push(Connection { to: from, distance });
             } else {
                 panic!();
