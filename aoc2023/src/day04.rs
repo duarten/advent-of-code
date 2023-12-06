@@ -6,7 +6,6 @@ use std::{
     str::FromStr,
 };
 
-#[derive(Debug, Clone)]
 struct Card {
     winning: HashSet<usize>,
     chosen: Vec<usize>,
