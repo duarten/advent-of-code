@@ -108,4 +108,4 @@ path = "src/day25.rs"
 anyhow = { workspace = true }
 lazy_static = { workspace = true }
 regex = { workspace = true }
-utils = { path = "../utils" }
+utils = { workspace = true }

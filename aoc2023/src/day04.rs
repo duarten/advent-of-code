@@ -13,13 +13,9 @@ struct Card {
 
 impl Card {
     fn score(&self) -> usize {
-        let matches = self.matches();
-        if matches == 0 {
-            0
-        } else if matches == 1 {
-            1
-        } else {
-            2_usize.pow((self.matches() - 1) as u32)
+        match self.matches() {
+            x if x < 2 => x,
+            _ => 2_usize.pow((self.matches() - 1) as u32),
         }
     }
 

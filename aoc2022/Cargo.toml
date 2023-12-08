@@ -111,4 +111,4 @@ itertools = { workspace = true }
 lazy_static = { workspace = true }
 nom = { workspace = true }
 regex = { workspace = true }
-utils = { path = "../utils" }
+utils = { workspace = true }
