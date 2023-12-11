@@ -17,3 +17,7 @@ pub fn gcd(a: usize, b: usize) -> usize {
 pub fn lcm(a: usize, b: usize) -> usize {
     a / gcd(a, b) * b
 }
+
+pub fn manhattan_distance(p1: (usize, usize), p2: (usize, usize)) -> usize {
+    p1.0.abs_diff(p2.0) + p1.1.abs_diff(p2.1)
+}
