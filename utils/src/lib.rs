@@ -21,3 +21,9 @@ pub fn lcm(a: usize, b: usize) -> usize {
 pub fn manhattan_distance(p1: (usize, usize), p2: (usize, usize)) -> usize {
     p1.0.abs_diff(p2.0) + p1.1.abs_diff(p2.1)
 }
+
+pub fn transpose<T: Clone>(src: &[Vec<T>]) -> Vec<Vec<T>> {
+    (0..src[0].len())
+        .map(|i| src.iter().map(|inner| inner[i].clone()).collect())
+        .collect()
+}
