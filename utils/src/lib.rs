@@ -1,3 +1,5 @@
+use std::mem::MaybeUninit;
+
 pub mod bitvec;
 pub mod list;
 
@@ -26,4 +28,15 @@ pub fn transpose<T: Clone>(src: &[Vec<T>]) -> Vec<Vec<T>> {
     (0..src[0].len())
         .map(|i| src.iter().map(|inner| inner[i].clone()).collect())
         .collect()
+}
+
+pub fn rotate<T: Copy>(src: &[Vec<T>]) -> Vec<Vec<T>> {
+    let mut rotated = vec![vec![MaybeUninit::uninit(); src.len()]; src[0].len()];
+    for r in 0..src.len() {
+        for (c, item) in rotated.iter_mut().enumerate().take(src[0].len()) {
+            item[src.len() - 1 - r].write(src[r][c]);
+        }
+    }
+    // SAFETY: `MaybeUnit<T>` is `#[repr(transparent)]` over `T``.
+    unsafe { std::mem::transmute(rotated) }
 }
