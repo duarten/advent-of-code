@@ -24,6 +24,10 @@ pub fn manhattan_distance(p1: (usize, usize), p2: (usize, usize)) -> usize {
     p1.0.abs_diff(p2.0) + p1.1.abs_diff(p2.1)
 }
 
+pub fn manhattan_distance_i32(p1: (i32, i32), p2: (i32, i32)) -> usize {
+    (p1.0.abs_diff(p2.0) + p1.1.abs_diff(p2.1)) as usize
+}
+
 pub fn transpose<T: Clone>(src: &[Vec<T>]) -> Vec<Vec<T>> {
     (0..src[0].len())
         .map(|i| src.iter().map(|inner| inner[i].clone()).collect())

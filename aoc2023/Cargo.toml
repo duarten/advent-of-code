@@ -64,6 +64,14 @@ path = "src/day14.rs"
 name = "day15"
 path = "src/day15.rs"
 
+[[bin]]
+name = "day16"
+path = "src/day16.rs"
+
+[[bin]]
+name = "day17"
+path = "src/day17.rs"
+
 [dependencies]
 lazy_static = { workspace = true }
 utils = { workspace = true }
